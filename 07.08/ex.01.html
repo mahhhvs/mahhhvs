@@ -28,9 +28,21 @@
    </h1>
    
    <script>
-    var nome = window.prompt ('qual o seu nome?')
-    window.alert ('seja bem vindo, ' + nome)
+    // var n1 = prompt (' digite um numero: ')
+    // var n2 = prompt (' digite outro numero: ')
+    // var s = n1 + n2
+    // window.alert ('a soma dos numeros é: ' + s)
 
+    // desse jeito daria errado pois colocando o "+", ele apenas juntaria os 2 numeros por cota de ser uma string normal. O correto sria transformar essa variavel em inteiro 
+
+    
+
+    var n1 = Number.parseFloat (window.prompt ('digite um numero: '))
+    var n2 = Number.parseFloat (window.prompt ('digite outro numero: '))
+    var res = n1 + n2
+
+   alert (res)
+    
    </script>
 </body>
 </html>
