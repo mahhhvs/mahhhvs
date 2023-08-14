@@ -56,21 +56,28 @@
 </head>
 <body>
    
-   
-   <div class="nome">
     <script>
-       function maiorIdade () {
-        var idade = Number.parseFloat(prompt("digite idade: "))
+       function boletim () {
+        var nota1 = Number.parseFloat(prompt("digite a 1 nota: "))
+        var nota2 = Number.parseFloat(prompt("digite a 2 nota: "))
+        var nota3 = Number.parseFloat(prompt("digite a 3 nota: "))
 
-        if (idade >= 18) {
-            document.write("maior de idade")
+        document.write ("nota 1: " + nota1)
+        document.write ("<br> nota 2: " + nota2)
+        document.write ("<br> nota 3: " + nota3)
+
+        var media = (nota1 + nota2 + nota3) / 3
+        document.write ("<br> media: " + media)
+
+        if (media >= 7) {
+            document.write("<br> aprovado")
         } else {
-            document.write("menor de idade")
+            document.write("<br> reprovado")
         }
         }
 
     </script>
     </div>
-    <button onclick="maiorIdade()">maior de idade</button>
+    <button onclick="boletim()">boletim</button>
 </body>
 </html>
