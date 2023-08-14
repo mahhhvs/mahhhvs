@@ -51,7 +51,7 @@
             padding: 20px 40px;
             color: rgb(45, 20, 184);
         }
-      
+
     </style>
 </head>
 <body>
@@ -59,46 +59,25 @@
    
    <div class="nome">
     <script>
-    var nome = prompt ('qual é seu nome completo? ')
-    document.write (`<strong>${nome}</strong> </br>`)
-   </script>
-   </div>
-   
-   <div class="endereco">
-   <script>
-    var endereco = prompt ('qual é seu endereco?')
-    document.write (`endereço: </br> <strong>${endereco}</strong> </br>`)
-   </script>
-   </div>
+        function operadores () {
+    var num1 = Number.parseFloat(prompt("digite o primeiro numero"))
+    var num2 = Number.parseFloat(prompt("digite o segundo numero"))
 
-    <div class="contato">
-    <script>
-    var contato = Number(prompt ('digite seu numero de telefone para contato:')) 
-    document.write (`numero de contato: </br> <strong>${contato}</strong> </br>`)
+    var soma = num1 + num2
+    var subtracao = num1 - num2
+    var multiplicacao = num1 * num2
+    var divisao = num1 / num2
+    var media = (num1 + num2) / 2
+
+    document.write ("o resultado da soma é " + soma )
+    document.write ("<br> o resultado da subtracao é " + subtracao)
+    document.write ("<br> o resultado da multiplicacao é " + multiplicacao)
+    document.write ("<br> o resultado da divisao é " + divisao)
+    document.write ("<br> o resultado da media é " + media)
+        }
+
     </script>
     </div>
-
-    <div class="escola">
-    <script>
-    var escola = prompt ('qual a sua escolaridade?')
-    document.write (`escolaridade: </br> <strong>${escola}</strong> </br>`) 
-    </script>
-    </div>
-
-    <div class="objetivo">
-    <script>
-    var objetivo = prompt ('qual é o seu objetivo?')
-    document.write (`objetivo: </br> <strong>${objetivo}</strong> </br>`)
-    </script>
-    </div>
-
-    <div class="sal">
-    <script>
-    var sal = Number(window.prompt ('qual o salario desejado?'))
-    salform = sal.toLocaleString ('pt-br', {style: 'currency', currency: 'BRL'})
-    document.write(`o salario desejado é: </br> <strong>${salform}</strong>`)
-    </script>
-    </div>
-
+    <button onclick="operadores()">operadores aritmeticos</button>
 </body>
 </html>
