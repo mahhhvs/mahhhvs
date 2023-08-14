@@ -59,10 +59,10 @@
    
    <div class="nome">
     <script>
-        function operadores () {
-    var num1 = Number.parseFloat(prompt("digite o primeiro numero"))
-    var num2 = Number.parseFloat(prompt("digite o segundo numero"))
-
+        var num1 = Number.parseFloat(prompt("digite o primeiro numero"))
+        var num2 = Number.parseFloat(prompt("digite o segundo numero"))
+       
+       function operadores () {
     var soma = num1 + num2
     var subtracao = num1 - num2
     var multiplicacao = num1 * num2
@@ -74,6 +74,13 @@
     document.write ("<br> o resultado da multiplicacao é " + multiplicacao)
     document.write ("<br> o resultado da divisao é " + divisao)
     document.write ("<br> o resultado da media é " + media)
+
+    document.write("<br>" + num1 + " é igual a" + num2 + "?" + (num1 == num2))
+    document.write("<br>" + num1 + " é diferente de" + num2 + "?" + (num1 != num2))
+    document.write("<br>" + num1 + " é maior que" + num2 + "?" + (num1 > num2))
+    document.write("<br>" + num1 + " é menor que " + num2 + "?" + (num1 < num2))
+    document.write("<br>" + num1 + " é maior ou igual a " + num2 + "?" + (num1 >= num2))
+    document.write("<br>" + num1 + " é menor ou igual a " + num2 + "?" + (num1 <= num2))
         }
 
     </script>
