@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+    <style>
+        body {
+            background-color: rgb(164, 164, 164);
+        }
+        .nome {
+            font-size: 70px;
+            border: solid;
+            border-color: rgb(7, 1, 122);
+            border-radius: 30px;
+            color: rgb(45, 20, 184);
+            text-align: center;
+            width: fit-content;
+            padding: 10px 70px;
+            margin: auto;
+            box-shadow: 10px 10px 30px black;
+        }
+
+
+        .endereco {
+            font-size: 30px;
+            padding: 20px 40px;
+            color: rgb(45, 20, 184);
+        }
+
+        .contato {
+            font-size: 30px;
+            padding: 20px 40px;
+            color: rgb(45, 20, 184);
+        }
+
+        .escola {
+            font-size: 30px;
+            padding: 20px 40px;
+            color: rgb(45, 20, 184);
+        }
+
+        .objetivo {
+            font-size: 30px;
+            padding: 20px 40px;
+            color: rgb(45, 20, 184);
+        }
+
+        .sal {
+            font-size: 30px;
+            padding: 20px 40px;
+            color: rgb(45, 20, 184);
+        }
+
+    </style>
+</head>
+<body>
+
+
+   <div class="nome">
+    <script>
+    var nome = prompt ('qual é seu nome completo? ')
+    document.write (`<strong>${nome}</strong> </br>`)
+   </script>
+   </div>
+
+   <div class="endereco">
+   <script>
+    var endereco = prompt ('qual é seu endereco?')
+    document.write (`endereço: </br> <strong>${endereco}</strong> </br>`)
+   </script>
+   </div>
+
+    <div class="contato">
+    <script>
+    var contato = Number(prompt ('digite seu numero de telefone para contato:')) 
+    document.write (`numero de contato: </br> <strong>${contato}</strong> </br>`)
+    </script>
+    </div>
+
+    <div class="escola">
+    <script>
+    var escola = prompt ('qual a sua escolaridade?')
+    document.write (`escolaridade: </br> <strong>${escola}</strong> </br>`) 
+    </script>
+    </div>
+
+    <div class="objetivo">
+    <script>
+    var objetivo = prompt ('qual é o seu objetivo?')
+    document.write (`objetivo: </br> <strong>${objetivo}</strong> </br>`)
+    </script>
+    </div>
+
+    <div class="sal">
+    <script>
+    var sal = Number(window.prompt ('qual o salario desejado?'))
+    salform = sal.toLocaleString ('pt-br', {style: 'currency', currency: 'BRL'})
+    document.write(`o salario desejado é: </br> <strong>${salform}</strong>`)
+    </script>
+    </div>
+
+</body>
+</html>
