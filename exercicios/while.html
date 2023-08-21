@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function pulalinha (){
+            document.write ("<br><br>")
+        }
+
+        function mostra (frase){
+            document.write(frase)
+        }
+
+        function tabuada (){
+            var numero = Number.parseFloat(prompt("qual tabuada voce quer?"));
+
+            var mult = Number.parseFloat(prompt("ate quando voce que que eu multiplique"));
+
+            var limite = 1;
+
+                while (limite <= mult){
+                    var x = (numero * limite);
+                    mostra(numero + " x " + limite + " = " + x);
+                    pulalinha ();
+                    limite = limite + 1;
+                }
+        }
+
+        tabuada();
+        mostra("FIM");
+    </script>
+</body>
+</html>

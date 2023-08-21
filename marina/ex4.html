@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function numero() {
+            var num = Number.parseFloat(prompt("digite um numero: "))
+
+            var metade = num / 2
+            var dobro = num * 2
+
+            document.write("numero digitado: " + num)
+            document.write("<br> metade do numero digitado: " + metade)
+            document.write("<br> dobro do numero digitado: " + dobro)
+
+        }
+    </script>
+    <button onclick="numero()">calculo</button>
+</body>
+</html>

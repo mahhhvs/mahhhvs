@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function IMC () {
+            var kg = Number.parseFloat(prompt("qual é seu peso? "))
+            var altura = Number.parseFloat(prompt("qual é a sua altura? "))
+
+            var peso = kg / (altura * altura) 
+
+            if (peso < 18.5) {
+                document.write("abaixo do peso")
+            } if (peso >= 18.5 && peso <=24.9){
+                document.write("saudável")
+            } if (peso >= 25 && peso <=29.9){
+                document.write("sobrepeso")
+            } if (peso >= 30 && peso <=39.9){
+                document.write("obeso")
+            } if (peso > 40) {
+                document.write("acima do peso")
+            }
+        }
+    </script>
+    <button onclick="IMC()">IMC</button>
+</body>
+</html>

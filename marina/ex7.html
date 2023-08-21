@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dataDia"></div>
+    <script>
+        function datas(){
+            function diaData (data){
+                    const dia = zero (data.getDate());
+                    const mes = zero (data.getMonth() + 1);
+                    const ano = data.getFullYear();
+
+                    return `${dia}/${mes}/${ano}`;
+                }
+
+                function atualizaData(){
+                    const agora = new Date();
+                    const diaFormatada = diaData (agora);
+                    document.getElementById ("dataDia").textContent = "hoje é: " + diaFormatada;
+                }
+
+                function zero (numero) {
+                return numero < 10 ? '0' + numero : numero;
+            }
+
+            
+            atualizaData();
+        }
+    </script>
+        <button onclick="datas()">data</button>
+</body>
+</html>

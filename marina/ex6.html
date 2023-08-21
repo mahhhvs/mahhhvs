@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function aluno() {
+            var nota1 = Number.parseFloat(prompt("digite a sua primeira nota:"))
+            var nota2 = Number.parseFloat(prompt("digite a sua segunda nota:"))
+            var nota3 = Number.parseFloat(prompt("digite a sua terceira nota:"))
+            var freq = Number.parseFloat(prompt("digite a sua frequencia:"))
+
+            var res = (nota1 + nota2 + nota3) / 3
+
+            document.write("nota 1: " + nota1 + "<br>nota 2: " + nota2 + "<br> nota 3: " + nota3 + "<br> frequecia: " + freq + "<br> media: " + res)
+
+            if (res >= 7 && freq >= 75){
+                document.write("<br> aprovado")
+            } else {
+                document.write("<br> reprovado")
+            }
+        }
+    </script>
+    <button onclick="aluno()">notas</button>
+</body>
+</html>
