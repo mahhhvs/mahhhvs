@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>salario</h1>
+    <script>
+        var idade = Number.parseFloat(prompt ("quantos anos voce tem de experiecia: "))
+        var sal = Number.parseFloat(prompt ("digite o seu salario: "))
+
+        if (idade >= 2 && sal >= 1000) {      //o && seria o "e"
+            document.write ("contratado")
+        } else {
+            document.write ("demitido")
+        }
+
+        document.write ("<br> anos de experiencia: " + idade)
+        document.write ("<br> salario: " + sal)
+    </script>
+</body>
+</html>

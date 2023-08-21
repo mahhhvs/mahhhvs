@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data e hora</title>
+</head>
+<body>
+    <h1>data e hora</h1>
+
+        <div id="dataDia"></div>
+        <div id="dataHora"></div>
+
+        <script>
+            function diaData (data){
+                const dia = zero (data.getDate());
+                const mes = zero (data.getMonth() + 1);
+                const ano = data.getFullYear();
+
+                return `${dia}/${mes}/${ano}`;
+            }
+           
+            function horario (horas) {
+                const hora = zero (horas.getHours());
+                const minutos = zero (horas.getMinutes());
+                const segundos = zero (horas.getSeconds());
+
+                return `${hora}:${minutos}:${segundos}`
+            }
+           
+            function atualizaData(){
+                const agora = new Date();
+                const diaFormatada = diaData (agora);
+                const horaFormatada = horario (agora);
+                document.getElementById ("dataDia").textContent = "hoje é: " + diaFormatada;
+                document.getElementById ("dataHora").textContent = "Agora sao: " + horaFormatada;
+
+            }
+
+            function zero (numero) {
+                return numero < 10 ? '0' + numero : numero;
+            }
+
+            
+            setInterval (atualizaData, 1000)
+            atualizaData();
+
+
+
+        </script>
+</body>
+</html>
