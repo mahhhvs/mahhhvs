@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio</title>
+</head>
+<body>
+    <h1>exercicio</h1>
+    <p>Som: <span id="somAnimal"></span></p>
+    <button id="cachorro">cachorro</button>
+    <button id="gato">gato</button>
+
+    <script>
+        class som{
+
+            constructor(){
+                this.value = "";
+            }
+
+            cachorro(){
+                this.value = "late";
+            }
+
+            gato(){
+                this.value = "mia";
+            }
+
+            retornaValor(){
+                return this.value;
+            }
+
+        }
+
+        const Animal = new som();
+
+        const somAnimal = document.getElementById("somAnimal");
+        const cachorro = document.getElementById("cachorro");
+        const gato = document.getElementById("gato");
+
+
+        function atualizasom(){
+            somAnimal.textContent = Animal.retornaValor();
+        }
+
+        //adiciona ou remove acoes dos botoes
+        cachorro.addEventListener('click', () => {
+            Animal.cachorro();
+            atualizasom();
+           
+        });
+
+        gato.addEventListener('click', () => {
+            Animal.gato();
+            atualizasom();
+           
+        });
+
+        atualizaSom();
+    </script>
+</body>
+</html>
