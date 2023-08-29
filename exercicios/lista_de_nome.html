@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientado a objeto</title>
+</head>
+<body>
+    <h1>orientação a objeto - javasript</h1>
+    <div id="output"></div>
+
+    <script>
+
+        class Pessoa  { 
+           
+            constructor(nome, idade){
+                this.nome = window.prompt("qual é seu nome?");
+                this.idade = window.prompt("qual é sua idade?");
+               
+            }
+
+           
+            cumprimentar() {
+                return `ola, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
+            }
+
+        }
+
+        const pessoa1 = new Pessoa(); 
+        const pessoa2 = new Pessoa();
+
+        const cumprimentoPessoa1 = pessoa1.cumprimentar();
+        const cumprimentoPessoa2 = pessoa2.cumprimentar();
+    
+        const outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `<p>${cumprimentoPessoa1}</p><p>${cumprimentoPessoa2}</p>`;
+    </script>
+</body>
+</html>

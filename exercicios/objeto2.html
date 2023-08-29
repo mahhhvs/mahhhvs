@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contador orientando a objeto</title>
+</head>
+<body>
+    <h1>contado orientando a objeto</h1>
+    <p>valor: <span id="contarValor"></span></p>
+    <button id="botaoIncremento">incrementar</button>
+    <button id="botaodecremento">decremento</button>
+
+    <script>
+        class Contador{
+            constructor(){
+                this.value = 0;
+            }
+
+            incremento(){
+                this.value++;
+            }
+
+            decremento(){
+                this.value--;
+            }
+
+            retornaValor(){
+                return this.value;
+            }
+        }
+
+        const contar = new Contador();
+
+        const contarValor = document.getElementById("contarValor");
+        const botaoIncremento = document.getElementById("botaoIncremento");
+        const botaoDecremento = document.getElementById("botaoDecremento");
+
+        //atualizar o valor exibido
+        function atualizaContador(){
+            contarValor.textContent = contar.retornaValor();
+        }
+
+        //adiciona ou remove acoes dos botoes
+        botaoIncremento.addEventListener('click', () => {
+            contar.incremento();
+            atualizaContador();
+        });
+
+        botaodecremento.addEventListener('click', () => {
+            contar.decremento();
+            atualizaContador();
+        });
+
+        atualizaContador();
+    </script>
+</body>
+</html>

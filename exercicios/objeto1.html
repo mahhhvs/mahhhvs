@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientado a objeto</title>
+</head>
+<body>
+    <h1>orientação a objeto - javasript</h1>
+    <div id="output"></div>
+
+    <script>
+
+        var nome = prompt('qual é seu nome?')
+        var idade = Number.parseFloat(prompt('qual é a sua idade?'))       
+
+        class Pessoa { //efinicaoda classe Pessoa
+            constructor(nome,idade){
+                this.nome = nome;
+                this.idade = idade;
+            }
+
+            //Função interna dentro da classe
+            cumprimentar() {
+                return `ola, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
+            }
+
+        }
+
+        //criação de uma instancia dentro da classe pessoa
+        const pessoa1 = new Pessoa(nome , idade);
+
+        //usando a função interna da classe 
+        const cumprimentoPessoa1 = pessoa1.cumprimentar();
+    
+        //Exibe os cumprimentos na tela 
+        const outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `<p>${cumprimentoPessoa1}</p>`;
+    </script>
+</body>
+</html>
