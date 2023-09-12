@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - JS</title>
+</head>
+<body>
+    <h1>lista de usuário</h1>
+    <ul id="lista-usuario"></ul>
+
+    <script>
+        //url do API para obter a lista de usuarios
+        const apiUrl = 'https://jsonplaceholder.typicode.com/users';
+
+        function obterUsuario() {
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const listaUsuarios = document.getElementById('lista-usuario');
+                data.forEach(usuario=> {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = usuario.email;
+                    listaUsuarios.appendChild(listItem);
+                });
+            })
+
+            .catch(error => {
+                console.error('erro ao obter dados: ', error);
+            });
+        }
+
+        obterUsuario();
+    </script>
+</body>
+</html>

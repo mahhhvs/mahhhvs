@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>camera e foto</title>
+
+    <style>
+        #camera{
+            max-width: 20%;
+            max-height: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>captura de imagem de camera</h1>
+    <video id="camera" autoplay></video> <br>
+    <button id="botaoCapturar">botao capturar</button>
+    <canvas id="quadroBranco" style="display: none;"></canvas>
+    <img id="capturaImagem" style="display: none;" alt="Imagem Captura">
+
+    <script>
+        const camera = document.getElementById('camera');
+        const quadroBranco = document.getElementById('quadroBranco');
+        const capturaImagem = document.getElementById('capturaImagem');
+        const botaoCapturar = document.getElementById('botaoCapturar');
+
+        //verificar se o avegador suporta o API da camera 
+        if('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){
+            navigator.mediaDevices.getUserMedia({video: true})
+            .then(stream => {
+                camera.srcObject = stream;
+            })
+
+            .catch(error => {
+                console.error('Erro ao acessar a camera', error);
+            });
+
+            //evento de clique para capturar imagem 
+            botaoCapturar.addEventListener('click', () => {
+                quadroBranco.width = camera.videoWidth;
+                quadroBranco.height = camera.videoHeight;
+                quadroBranco.getContext('2d').drawImage(camera, 0, 0, quadroBranco.width, quadroBranco.height);
+                capturaImagem.src = quadroBranco.toDataURL('image/png');
+                capturaImagem.style.display = 'block';
+            });
+        } else{
+            console.error('a API da camera nao é suportada neste navegador');
+            botaoCapturar.disabled = true;
+        }
+    </script>
+</body>
+</html>
