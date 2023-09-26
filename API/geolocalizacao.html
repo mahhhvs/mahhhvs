@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="getLocalizacaoBTN">obter localizacao</button>
+    <div id="dataLocalizacao">
+        <p><b>Latitude:</b><span id="latitude"></span></p>
+        <p><b>Longitude:</b><span id="longitude"></span></p>
+        <p><b>Cidade: </b><span id="cidade"></span></p>
+    </div>
+
+    <script>
+        function showLocation(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            document.getElementById('latitude').textContent = latitude;
+            document.getElementById('longitude').textContent = longitude;
+
+            const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const cidade = data.address.city || data.address.town || data.address.village || 'Cidade desconhecida';
+                document.getElementById('cidade').textContent = cidade;
+            })
+            .catch(error => {
+                console.error('Erro ao obter nome da cidade:', error);
+                const cidade = 'Cidade desconhecida';
+                document.getElementById('cidade').textContent = cidade;
+            });
+        }
+
+        function showError(error) {
+            document.getElementById('dataLocalizacao').innerHTML = `<p>Ocorreu um erro ao obter a localizacao: ${error.message}</p>`;
+        }
+
+        document.getElementById('getLocalizacaoBTN').addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showLocation, showError);
+            } else {
+                document.getElementById('dataLocalizacao').innerHTML = "<p>GeoLocalizacao não é suportada pelo seu navegador.</p>";
+            }
+        });
+
+    </script>
+</body>
+</html>

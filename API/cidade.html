@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocalização</title>
+</head>
+<body>
+    <h1>Geolocalização</h1>
+    <p>Digite a cidade:</p>
+    <input type="text" id="nomeCidade" placeholder="Digite o nome da cidade">
+    <button id="coordenadasBTN">Obter coordenadas</button>
+    <p id="coordenadasDados"></p>
+
+    <script>
+        function Coordenadas() {
+            var cidade = document.getElementById("nomeCidade").value;
+            var apiKey = "c08a3ca3ede140debd89c966a4fc7f1b"; // Corrigido o nome da variável
+
+            if (cidade.trim() === "") {
+                document.getElementById("coordenadasDados").innerHTML = "Por favor, digite uma cidade";
+                return;
+            }
+
+            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(cidade)}&key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.results && data.results.length > 0) {
+                    var latitude = data.results[0].geometry.lat;
+                    var longitude = data.results[0].geometry.lng;
+                    var coordenadasDados = "Latitude: " + latitude + "<br>Longitude: " + longitude; // Corrigido o nome da variável
+                    document.getElementById("coordenadasDados").innerHTML = coordenadasDados;
+                } else {
+                    document.getElementById("coordenadasDados").innerHTML = "Cidade não encontrada";
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao acessar a API:", error);
+                document.getElementById("coordenadasDados").innerHTML = "Erro ao buscar dados da cidade";
+            });
+        }
+
+        document.getElementById("coordenadasBTN").addEventListener("click", Coordenadas);
+    </script>
+</body>
+</html>
