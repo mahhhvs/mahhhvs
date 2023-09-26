@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+</head>
+<body>
+    <h1>Previsão do Tempo</h1>
+    <label for="cityInput">Digite o nome da cidade:</label>
+    <input type="text" id="cityInput">
+    <button id="getWeatherButton">Obter Previsão</button>
+    <div id="weatherInfo"></div>
+    <script>
+        const apiKey = '1c160123152ef28d088fe32a2aa5684a';
+
+// Função para obter a previsão do tempo
+function getWeather() {
+    const cityInput = document.getElementById('cityInput').value;
+    
+    // Verifica se o campo de entrada não está vazio
+    if (cityInput.trim() === '') {
+        alert('Por favor, digite o nome da cidade.');
+        return;
+    }
+
+    // Constrói a URL da API com a chave e a cidade
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric&lang=pt_br`;
+
+    // Faz a requisição à API do OpenWeatherMap
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const weatherInfo = document.getElementById('weatherInfo');
+            weatherInfo.innerHTML = `
+                <h2>Previsão do Tempo para ${data.name}, ${data.sys.country}</h2>
+                <p>Temperatura: ${data.main.temp}°C</p>
+                <p>Clima: ${data.weather[0].description}</p>
+                <p>Umidade: ${data.main.humidity}%</p>
+            `;
+        })
+        .catch(error => {
+            console.error('Erro ao obter dados de previsão:', error);
+        });
+}
+
+// Vincula a função ao botão
+const getWeatherButton = document.getElementById('getWeatherButton');
+getWeatherButton.addEventListener('click', getWeather);
+
+    </script>
+</body>
+</html>
