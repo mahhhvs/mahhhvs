@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        #taskInput {
+            width: 60%;
+            padding: 10px;
+        }
+
+        #taskList {
+            list-style: none;
+            padding: 0;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de tarefas</h1>
+    <input type="text" id="taskInput" placeholder="Adicione uma tarefa">
+    <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', carregarTarefa);
+
+        function adicionarTarefa() {
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value.trim();
+            if (taskText === '') return;
+
+            const taskList = document.getElementById('taskList');
+
+            const taskItem = document.createElement('li');
+            const taskCheckbox = document.createElement('input');
+            const taskLabel = document.createElement('label');
+
+            taskCheckbox.type = 'checkbox';
+
+            taskLabel.textContent = taskText;
+            taskLabel.htmlFor = 'task' + (taskList.children.length + 1); // Corrigido o cálculo do ID
+
+            taskItem.appendChild(taskCheckbox);
+            taskItem.appendChild(taskLabel);
+            taskList.appendChild(taskItem);
+
+            taskCheckbox.addEventListener('change', function () {
+                taskLabel.classList.toggle('completed', taskCheckbox.checked);
+                salvarTarefa();
+            });
+
+            salvarTarefa();
+            taskInput.value = '';
+        }
+
+        function salvarTarefa() {
+            const tasks = [];
+            const taskList = document.getElementById('taskList');
+
+            for (let i = 0; i < taskList.children.length; i++) {
+                const taskItem = taskList.children[i];
+                const taskCheckbox = taskItem.querySelector('input[type="checkbox"]');
+                const taskLabel = taskItem.querySelector('label');
+
+                tasks.push({
+                    text: taskLabel.textContent,
+                    completed: taskCheckbox.checked,
+                });
+            }
+            localStorage.setItem('tarefas', JSON.stringify(tasks));
+        }
+
+        function carregarTarefa() {
+            const tasks = JSON.parse(localStorage.getItem('tarefas') || '[]');
+            const taskList = document.getElementById('taskList');
+
+            for (const task of tasks) {
+                const taskItem = document.createElement('li');
+                const taskCheckbox = document.createElement('input');
+                const taskLabel = document.createElement('label');
+
+                taskCheckbox.type = 'checkbox';
+                taskCheckbox.checked = task.completed;
+
+                taskLabel.textContent = task.text;
+                taskLabel.htmlFor = 'task' + (taskList.children.length + 1); // Corrigido o cálculo do ID
+
+                taskItem.appendChild(taskCheckbox);
+                taskItem.appendChild(taskLabel);
+                taskList.appendChild(taskItem);
+
+                taskCheckbox.addEventListener('change', function () {
+                    taskLabel.classList.toggle('completed', taskCheckbox.checked);
+                    salvarTarefa();
+                });
+            }
+
+            
+        }
+
+        function limparTarefas() {
+            // Limpa todas as tarefas
+            const taskList = document.getElementById('taskList');
+            while (taskList.firstChild) {
+                taskList.removeChild(taskList.firstChild);
+            }
+            localStorage.removeItem('tarefas');
+        }
+    </script>
+</body>
+</html>

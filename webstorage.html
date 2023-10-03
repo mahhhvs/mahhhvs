@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>exemplo de web storage</h1>
+    <p>insira um valor no campo abaixo:</p>
+    <input type="text" id="userInput">
+    <button onclick="salvarLocal()">salvar</button>
+
+    <p>o valor armazenado no local storage é: <span id="valorArmazenado"></span></p>
+
+    <script>
+        function salvarLocal() {
+            const userInput = document.getElementById('userInput').value;
+            localStorage.setItem('dadosArmazenados', userInput);
+            document.getElementById('valorArmazenado').textContent = userInput;
+        }
+
+        const valorSalvo = localStorage.getItem('dadosArmazenados');
+        if (ValorSalvo) {
+            document.getElementById('valorArmazenado').textContent = valorSalvo;
+        }
+    </script>
+</body>
+</html>

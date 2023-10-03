@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>configuracao de tema</h1>
+    <label for="tema">escolha um tema</label>
+    <select id="tema">
+        <option value="claro">tema claro</option>
+        <option value="escuro">tema escuro</option>
+        <option value="personalizado">tema personalizado</option>
+    </select>
+
+    <h2>conteudo da pagina</h2>
+    <p>este é um exemplo de armazenamento de preferncia do usuario. escolha um tema acima</p>
+
+    <script>
+        document.getElementById('tema').addEventListener
+        ('change', function(){
+            const temaSelecionado = this.value;
+            localStorage.setItem('tema', temaSelecionado);
+            aplicarTema(temaSelecionado);
+        });
+
+        function aplicarTema(tema){
+            if (tema === 'claro'){
+                documenr.body.style.backgroundColor = 'white';
+                document.body.style.color = 'black';
+            } else if (tema === 'escuro') {
+                document.body.style.backgroundColor = 'black';
+                document.body.style.color = 'white';
+            } else if (tema === 'personalizado') {
+                document.body.style.backgroundColor = 'pink';
+                document.body.style.color = 'white';
+            }
+        }
+
+        const temaArmazenamento = localStorage.getItem('tema');
+        if (temaArmazenamento){
+            document.getElementById('tema').value = temaArmazenamento;
+            aplicarTema(temaArmazenamento);
+        }
+    </script>
+</body>
+</html>

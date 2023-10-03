@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function process_geral(quant, element){
+            var classValue = parseInt(element.parentElement.querySelector('.quanti').value);
+            classValue+=quant;
+            //console.log(classValue); 
+            if(classValue < 1){
+                element.parentElement.querySelector("input.quanti").value = 1;
+            }else{ 
+                element.parentElement.querySelector("input.quanti").value = classValue;    
+            }
+        }  
+        </script>
+        <div>
+            <div class="produto_qnt_princ" data-app="product.quantity">     
+              <input class="qnt_menor_maior" type="button" id="plus" value='-' onclick="process_geral(-1, this)" />
+              <input class="quanti qnt_menor_maior" name="quanti" class="text" size="1" type="text" value="1" maxlength="5" />
+              <input class="qnt_menor_maior" type="button" id="minus" value='+' onclick="process_geral(1, this)" /> 
+            </div> 
+        </div> 
+</body>
+</html>
