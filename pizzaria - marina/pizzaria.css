@@ -1,0 +1,270 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body{
+    
+} */
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: green;
+    color: #fff;
+}
+
+.nav-links a{
+    color: #fff;
+}
+
+.logo{
+    font-size: 55px;
+}
+
+.menu{
+    display: flex;
+    gap: 1em;
+    font-size: 23px;
+}
+
+.menu li:hover{
+    background-color: rgb(170, 19, 19);
+    border-radius: 9px;
+    transition: 0.5s ease;
+}
+
+.menu li{
+    padding: 5px 14px;
+}
+
+.services{
+    position: relative;
+}
+
+.dropdown{
+    background-color: green;
+    padding: 1em 0;
+    position: absolute;
+    display: none;
+    border-radius: 8px;
+    top: 35px;
+}
+
+.dropdown li + li{
+    margin-top: 10px;
+}
+
+.dropdown li{
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+}
+
+.dropdown li:hover{
+    background-color: rgb(170, 19, 19);
+}
+
+.services:hover .dropdown{
+    display: block;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+
+.hamburguer{
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+
+@media (max-width: 768px){
+   .menu{
+    display: none;
+    position: absolute;
+    background-color: green;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+   } 
+
+   .menu li:hover{
+    display: inline-block;
+    background-color: rgb(170, 19, 19);
+    transition: 0.3s ease;
+   }
+
+   .menu li + li{
+    margin-top: 12px;
+   }
+
+   input[type=checkbox]:checked ~ .menu{
+    display: block;
+   }
+
+   .hamburguer{
+    display: block;
+   }
+
+   .dropdown{
+    left: 50%;
+    top: 30px;
+    transform: translateX(35%);
+   }
+
+   .dropdown li:hover{
+    background-color: rgb(170, 19, 19);
+   }
+
+   .container {
+    flex-direction: column;
+   }
+  
+}
+
+.container {
+    display: flex;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu5mxKOzY.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+
+  .conteudo-principal-interno{
+
+    padding-top: 35px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display:flex;
+    }
+
+    .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: var(--spacing-gutter-medium);
+    }
+
+    .grid-conteudo {
+    height: 400px;
+    }
+
+    .conteudo-principal-externo{
+    margin-top: 45px;
+    display:flex;
+    }
+
+    .grid-conteudo {
+    height :400px;
+    }
+
+    .configuracoes-grid img {
+    max-width: 300px;
+    /* max-heigth: 150px; */
+    border-radius: 15px 15px 0px 0px;
+    }
+
+    .configuracoes-grid{
+    background: lightgray;
+    box-shadow: 10px 15px 20px rgba(170, 19, 19, 0.401);
+    transform: scale (1);
+    transition: all 400ms ease-in-out;
+    }
+
+    .configuracoes-grid:hover{
+    transform: scale(1.05);
+    }
+
+    .conteudo-receita {
+     max-width: 300px;
+    /* max-heigth: 300px; */
+    border-radius: 15px;
+    }
+
+    .titulo-receita{
+    text-align: center;
+    padding:15px;
+    }
+
+    .autor-receita-icone {
+    padding: 15px;
+    text-align: center;
+    }
+
+    .conteudo-principal-externo{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        
+    }
+    .botao-pedido{
+        position: relative; 
+        left: 80px;
+        
+    }
+
+    button{
+        color: white;
+        background-color: red;
+        padding: 5px;
+    }
+    h1{
+        text-align: center;
+        font-size: 50px;
+        text-shadow: 5px 5px 15px gray;
+        color: rgb(102, 8, 8);
+    
+    }
+
+    .descricao {
+        text-align: center;
+    }
+
+    /*css andre*/
+    .container{
+        display: flex;
+    }
+    
+    .column{
+        flex: 1;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .container{
+            flex-direction: column;
+        }
+    }
+
+    .conteudo-container {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center; 
+    }
+    
+    .sobre {
+        font-size: 23px;
+        text-align: center;
+        padding: 20px 70px;
+    }
+
+    .fonte-titulo-receita {
+        font-size: 23px;
+    }
+    
